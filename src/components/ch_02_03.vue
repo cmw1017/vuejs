@@ -1,4 +1,5 @@
 <template>
+  <h1> ch_02_03 실습 (v-on, v-bind, methods)</h1>
   <div class="box" v-bind:class="{active: toggle}" v-on:click="toggleElement">{{message}}</div>
   <button v-on:click="toggleElement">Toggle</button>
   <input type="text" v-model="message">

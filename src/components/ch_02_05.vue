@@ -1,4 +1,5 @@
 <template>
+<h1> ch_02_05 실습 (props)</h1>
     <ul>
         <!-- v-bind => :, v-on => @ 으로 표기 -->
         <ch_02_05_sub v-for="todo in todos" :key="todo.id" :todo_props="todo"></ch_02_05_sub>

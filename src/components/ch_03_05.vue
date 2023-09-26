@@ -1,4 +1,7 @@
 <template>
+    <h1> ch_03_05 실습 (computed)</h1>
+    <p> computed 변수 중 data 선언하지 않은 변수들은 수정하려고 하면 오류가 발생함</p>
+    <p> computed 변수는 기존에 선언된 변수에 추가로 계산을 하거나 속성을 추가하는 것이므로 computed를 통해 생성된 속성은 수정되지 않는 것으로 보임</p>
     <ul>
         <li v-for="todo in computedTodos" :key="todo.id">
             <!-- v-bind => :, v-on => @ 으로 표기 -->

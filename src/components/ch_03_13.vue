@@ -1,5 +1,8 @@
 <template>
-     <button v-on:click="pushTodo">간식 먹기 추가</button>
+    <h1> ch_03_13 실습 (v-for)</h1>
+    <p> v-for의 리스트에 반응성을 넣으려면 push, pop 등의 배열 함수를 사용하여 값을 넣어야함</p>
+    <p> 배열 요소(array[i] 방식)로 직접 할당하는 방식은 반응성을 갖지 않음(Vue3에서는 반응성을 갖을 수 있게 수정됨)</p>
+    <button v-on:click="pushTodo">간식 먹기 추가</button>
     <ul>
         <!-- 만약 id가 없다면 index로 key를 할당할 수 있음 -->
         <li v-for="(todo, index) in todos" :key="index">

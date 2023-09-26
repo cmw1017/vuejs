@@ -1,4 +1,6 @@
 <template>
+    <h1> ch_03_15 실습</h1>
+    <p> Vue3에서는 set을 통한 수정을 하지 않고, 데이터의 추가 또는 삭제도 감지할 수 있다고 함</p>
     <button v-on:click="pushTodo">간식 먹기 추가</button>
     <ul>
         <!-- 만약 id가 없다면 index로 key를 할당할 수 있음 -->
