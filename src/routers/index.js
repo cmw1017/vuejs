@@ -30,6 +30,11 @@ const routes = [
         path: "/ch_03_15",
         name: "ch_03_15",
         component: () => import('@/components/ch_03_15.vue')
+    },
+    {
+        path: "/ch_03_16",
+        name: "ch_03_16",
+        component: () => import('@/components/ch_03_16.vue')
     }
 ];
 
