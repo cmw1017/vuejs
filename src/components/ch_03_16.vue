@@ -1,5 +1,5 @@
 <template>
-    <h1> ch_03_16 실습 (이벤트 핸들러))</h1>
+    <h1> ch_03_16 실습 (이벤트 핸들러)</h1>
     <ul>
         <!-- 만약 id가 없다면 index로 key를 할당할 수 있음 -->
         <li v-for="(todo, index) in todos" 

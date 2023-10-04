@@ -15,6 +15,8 @@
   <a href="/ch_03_15">ch_03_15</a>
   <span>/</span>
   <a href="/ch_03_16">ch_03_16</a>
+  <span>/</span>
+  <a href="/ch_03_25">ch_03_25</a>
 
   <div>
     <router-view></router-view>
