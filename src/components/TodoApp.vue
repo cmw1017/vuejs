@@ -1,16 +1,22 @@
 <template>
   <div>
-    <todo-item />
-    <todo-creator />
+    <todo-item 
+      v-for="todo in todos"
+      :key="todo.id"
+      :todo_props="todo"
+      @update-todo="updateTodo"
+      @delete-todo="deleteTodo"
+    />
 
-    <button @click="createTodo">클릭</button>
+    <hr/>
+    <todo-creator @create-todo="createTodo" />
   </div>
 </template>
 
 <script>
-import cryptoRandomString from 'crypto-random-string'
-import TodoCreator from "./TodoCreator.vue"
-import TodoItem from "./TodoItem.vue"
+import cryptoRandomString from "crypto-random-string";
+import TodoCreator from "./TodoCreator.vue";
+import TodoItem from "./TodoItem.vue";
 
 export default {
   components: {
@@ -19,35 +25,43 @@ export default {
   },
   data() {
     return {
-      todos: []
-    }
+      todos: [],
+    };
   },
   created() {
-      const todoVar = {
-          todos: []
-      }
-      const objString = JSON.stringify(todoVar);
-      localStorage.setItem('todo-app', objString)
+    this.initDB()
   },
   methods: {
-      createTodo() {
-          const newTodo = {
-              id: cryptoRandomString({ length: 10 }),
-              title: "타이틀",
-              createdAt: new Date(),
-              updatedAt: new Date(),
-              done: false
-          }
-          const todoString = localStorage.getItem('todo-app')
-          const todoObj = JSON.parse(todoString);
-          this.todos.push(newTodo)
-          console.log(this.todos)
+    initDB() {
+      const todoString = localStorage.getItem("todo-app");
+      const todoObj = JSON.parse(todoString);
 
-          todoObj.todos.push(newTodo)
-          const objString = JSON.stringify(todoObj);
-          localStorage.setItem('todo-app', objString)
-          
+      if(todoObj) {
+        this.todos = todoObj
+      } else {
+        const todosString = JSON.stringify(this.todos);
+        localStorage.setItem("todo-app", todosString);
       }
+    },
+    createTodo(title) {
+      const newTodo = {
+        id: cryptoRandomString({ length: 10 }),
+        title,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        done: false,
+      };
+
+      this.todos.push(newTodo);
+      const todosString = JSON.stringify(this.todos);
+      localStorage.setItem("todo-app", todosString);
+    },
+    updateTodo() {
+      console.log('updateTodo!')
+    },
+    deleteTodo() {
+      console.log('deleteTodo!')
+    }
   },
 };
 </script>
