@@ -2632,6 +2632,38 @@
   "resolved" "https://registry.npmjs.org/commondir/-/commondir-1.0.1.tgz"
   "version" "1.0.1"
 
+"component-clone@0.2.2":
+  "integrity" "sha512-MHxnjmZLxTCVtmaHQ1LdjO5Hxx4d9akIzqGA8BDAGKGKkoB8Vf+oLEl9cwKkYln6BdfGwoXMU6xXGFnp1s/Eow=="
+  "resolved" "https://registry.npmjs.org/component-clone/-/component-clone-0.2.2.tgz"
+  "version" "0.2.2"
+  dependencies:
+    "component-type" "*"
+
+"component-emitter@1.2.0":
+  "integrity" "sha512-U8EviusIm8Fc5vMbs9opNX8r/hAz8PFYOu003AR1OVkCnDSTaBHB8inMn97yIbkGlI+dcdsItTBjgiZkVVzxYg=="
+  "resolved" "https://registry.npmjs.org/component-emitter/-/component-emitter-1.2.0.tgz"
+  "version" "1.2.0"
+
+"component-raf@1.2.0":
+  "integrity" "sha512-MF1EHzsI2u04n8HGUW36E4bCzC0VqkJsRdbEcGU2hf5+EcnPLZckKS5F5V4E+XfPWjrBAP3Qp1TG79TbVGyd0A=="
+  "resolved" "https://registry.npmjs.org/component-raf/-/component-raf-1.2.0.tgz"
+  "version" "1.2.0"
+
+"component-tween@1.2.0":
+  "integrity" "sha512-fQCubCyoosovh5VgnnnBsHnq6E0zjDpbAvW48t6glHIFWteowyP7cicPnzj9i3kuaFxI8P+zsSNao+26mQFG4A=="
+  "resolved" "https://registry.npmjs.org/component-tween/-/component-tween-1.2.0.tgz"
+  "version" "1.2.0"
+  dependencies:
+    "component-clone" "0.2.2"
+    "component-emitter" "1.2.0"
+    "component-type" "1.1.0"
+    "ease-component" "1.0.0"
+
+"component-type@*", "component-type@1.1.0":
+  "integrity" "sha512-rLfU88D3tytip79EqPsLD+ND+Fl8HsIhz5KkOEeNidNVN1GUO9AWEs8+DPLtZR63BecAC883DuF2GZ1DM78BbA=="
+  "resolved" "https://registry.npmjs.org/component-type/-/component-type-1.1.0.tgz"
+  "version" "1.1.0"
+
 "compressible@~2.0.16":
   "integrity" "sha512-AF3r7P5dWxL8MxyITRMlORQNaOA2IkAFaTr4k7BUumjPtRpGDTZpl0Pb1XCO6JeDCBdp126Cgs9sMxqSjgYyRg=="
   "resolved" "https://registry.npmjs.org/compressible/-/compressible-2.0.18.tgz"
@@ -3094,6 +3126,11 @@
   "integrity" "sha512-jtD6YG370ZCIi/9GTaJKQxWTZD045+4R4hTk/x1UyoqadyJ9x9CgSi1RlVDQF8U2sxLLSnFkCaMihqljHIWgMg=="
   "resolved" "https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz"
   "version" "0.1.2"
+
+"ease-component@1.0.0":
+  "integrity" "sha512-9Ouvcal2rQpKVw3uwVbs4BKyiQyA4LZD9VOjb+qor3jUPKEl/1hn60oKW6NEVj/Fw924skDsKXyCasPX4rRH5Q=="
+  "resolved" "https://registry.npmjs.org/ease-component/-/ease-component-1.0.0.tgz"
+  "version" "1.0.0"
 
 "easy-stack@1.0.1":
   "integrity" "sha512-wK2sCs4feiiJeFXn3zvY0p41mdU5VUgbgs1rNsc/y5ngFUijdWd+iIN8eoyuZHKB8xN6BL4PdWmzqFmxNg6V2w=="
@@ -6039,6 +6076,14 @@
     "ajv" "^8.9.0"
     "ajv-formats" "^2.1.1"
     "ajv-keywords" "^5.1.0"
+
+"scroll-to@^0.0.2":
+  "integrity" "sha512-Jej5WQ8RvLFNQwCvJtiPfJ0wECCed5KdLnGPi1Cbd+djxcpwP1iInwhGAmzT87LTQcwxqLGd64zCX+1e0MmlLA=="
+  "resolved" "https://registry.npmjs.org/scroll-to/-/scroll-to-0.0.2.tgz"
+  "version" "0.0.2"
+  dependencies:
+    "component-raf" "1.2.0"
+    "component-tween" "1.2.0"
 
 "scss-tokenizer@^0.4.3":
   "integrity" "sha512-raKLgf1LI5QMQnG+RxHz6oK0sL3x3I4FN2UDLqgLOGO8hodECNnNh5BXn7fAyBxrA8zVzdQizQ6XjNJQ+uBwMw=="

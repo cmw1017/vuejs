@@ -6,28 +6,48 @@
         <!-- @click는 button 요소에 이벤트 메소드를 넣는 것 -->
         <button
           :class="{ active: filter === 'all' }"
-          @click="changeFilter('all')"
-        >
+          @click="changeFilter('all')">
           모든 항목 ({{ total }})
         </button>
         <button
           :class="{ active: filter === 'active' }"
-          @click="changeFilter('active')"
-        >
+          @click="changeFilter('active')">
           해야 할 항목 ({{ activeCount }})
         </button>
         <button
           :class="{ active: filter === 'completed' }"
-          @click="changeFilter('completed')"
-        >
+          @click="changeFilter('completed')">
           완료된 항목 ({{ completedCount }})
         </button>
       </div>
 
-      <div class="actions">
+      <div class="actions clearfix">
         <!-- v-model은 input의 값과 allDone이라는 Computed 값이 양방향 바인딩이 되도록하는 것 -->
-        <input v-model="allDone" type="checkbox" />
-        <button @click="clearCompleted">완료된 항목 삭제</button>
+        <div class="float--left">
+           <label>
+             <input 
+              v-model="allDone" 
+              type="checkbox"/>
+              <span class="icon"><i class="material-icons">done_all</i></span>
+           </label>
+        </div>
+        <div class="float--right clearfix">
+          <button 
+            class="btn float--left"
+            @click="scrollToTop">
+            <i class="material-icons">expand_less</i>
+          </button>
+          <button 
+            class="btn float--left"
+            @click="scrollToBottom">
+            <i class="material-icons">expand_more</i>
+          </button>
+          <button 
+            class="btn btn--danger float--left" 
+            @click="clearCompleted">
+            <i class="material-icons">delete_sweep</i>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -45,12 +65,11 @@
         @delete-todo="deleteTodo"
       />
     </div>
-
-    <hr />
-
-    <div class="todo-app__creater">
-      <todo-creator @create-todo="createTodo" />
-    </div>
+    
+    <todo-creator 
+      class="todo-app__creator" 
+      @create-todo="createTodo"/>
+    
   </div>
 </template>
 
@@ -60,6 +79,7 @@ import _find from "lodash/find";
 import _assign from "lodash/assign";
 import _findIndex from "lodash/findIndex";
 import _forEachRight from "lodash/forEachRight";
+import scrollTo from 'scroll-to'
 import TodoCreator from "./TodoCreator.vue";
 import TodoItem from "./TodoItem.vue";
 
@@ -201,12 +221,20 @@ export default {
         }
       });
     },
+    scrollToTop () {
+      scrollTo(0, 0, {
+        ease: 'linear'
+      })
+    },
+    scrollToBottom () {
+      scrollTo(0, document.body.scrollHeight, {
+        ease: 'linear'
+      })
+    }
   },
 };
 </script>
 
-<style scoped lang="scss">
-button.active {
-  font-weight: bold;
-}
+<style lang="scss">
+  @import "@/scss/_style.scss";
 </style>
