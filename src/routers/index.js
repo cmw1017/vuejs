@@ -2,45 +2,59 @@ import { createWebHistory, createRouter } from "vue-router";
 
 const routes = [
     {
-        path: "/ch_02_03",
-        name: "ch_02_03",
-        component: () => import('@/components/ch_02_03.vue')
+        name: "home",
+        path: "/",
+        component: () => import('@/views/Home.vue')
     },
     {
-        path: "/ch_02_05",
-        name: "ch_02_05",
-        component: () => import('@/components/ch_02_05.vue')
+        name: "about",
+        path: "/about",
+        component: () => import('@/views/About.vue')
     },
     {
-        path: "/ch_03_05",
-        name: "ch_03_05",
-        component: () => import('@/components/ch_03_05.vue')
+        name: "todos",
+        path: "/todos/:id",
+        component: () => import('@/views/TodoApp.vue')
     },
     {
-        path: "/ch_03_11_12",
-        name: "ch_03_11_12",
-        component: () => import('@/components/ch_03_11_12.vue')
+        name: "practices",
+        path: "/practices",
+        component: () => import('@/views/Practices.vue'),
+        children: [
+            {
+                path: 'ch_02_03',
+                component: () => import('@/components/ch_02_03.vue')
+            },
+            {
+                path: 'ch_02_05',
+                component: () => import('@/components/ch_02_05.vue')
+            },
+            {
+                path: 'ch_03_05',
+                component: () => import('@/components/ch_03_05.vue')
+            },
+            {
+                path: 'ch_03_11_12',
+                component: () => import('@/components/ch_03_11_12.vue')
+            },
+            {
+                path: 'ch_03_13',
+                component: () => import('@/components/ch_03_13.vue')
+            },
+            {
+                path: 'ch_03_15',
+                component: () => import('@/components/ch_03_15.vue')
+            },
+            {
+                path: 'ch_03_16',
+                component: () => import('@/components/ch_03_16.vue')
+            },
+            {
+                path: 'ch_03_25',
+                component: () => import('@/components/ch_03_25.vue')
+            },
+        ]
     },
-    {
-        path: "/ch_03_13",
-        name: "ch_03_13",
-        component: () => import('@/components/ch_03_13.vue')
-    },
-    {
-        path: "/ch_03_15",
-        name: "ch_03_15",
-        component: () => import('@/components/ch_03_15.vue')
-    },
-    {
-        path: "/ch_03_16",
-        name: "ch_03_16",
-        component: () => import('@/components/ch_03_16.vue')
-    },
-    {
-        path: "/ch_03_25",
-        name: "ch_03_25",
-        component: () => import('@/components/ch_03_25.vue')
-    }
 ];
 
 const router = createRouter({

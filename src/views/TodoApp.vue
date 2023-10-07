@@ -2,23 +2,15 @@
   <div class="todo-app">
     <div class="todo-app__actions">
       <div class="filters">
-        <!-- :class는 filter가 'all'이면 active라는 클래스를 button 요소에 삽입한다는 의미 -->
-        <!-- @click는 button 요소에 이벤트 메소드를 넣는 것 -->
-        <button
-          :class="{ active: filter === 'all' }"
-          @click="changeFilter('all')">
-          모든 항목 ({{ total }})
-        </button>
-        <button
-          :class="{ active: filter === 'active' }"
-          @click="changeFilter('active')">
-          해야 할 항목 ({{ activeCount }})
-        </button>
-        <button
-          :class="{ active: filter === 'completed' }"
-          @click="changeFilter('completed')">
-          완료된 항목 ({{ completedCount }})
-        </button>
+        <router-link to="all" custom v-slot="{ navigate }">
+          <button :class="{selected: $route.params.id === 'all'}" @click="navigate" @keypress.enter="navigate" role="link"> 모든 항목 ({{ total }}) </button>
+        </router-link>
+        <router-link to="active" custom v-slot="{ navigate }">
+          <button :class="{selected: $route.params.id === 'active'}" @click="navigate" @keypress.enter="navigate" role="link"> 해야 할 항목 ({{ activeCount }}) </button>
+        </router-link>
+        <router-link to="completed" custom v-slot="{ navigate }">
+          <button :class="{selected: $route.params.id === 'completed'}" @click="navigate" @keypress.enter="navigate" role="link"> 완료된 항목 ({{ completedCount }}) </button>
+        </router-link>
       </div>
 
       <div class="actions clearfix">
@@ -80,8 +72,8 @@ import _assign from "lodash/assign";
 import _findIndex from "lodash/findIndex";
 import _forEachRight from "lodash/forEachRight";
 import scrollTo from 'scroll-to'
-import TodoCreator from "./TodoCreator.vue";
-import TodoItem from "./TodoItem.vue";
+import TodoCreator from "../components/TodoCreator.vue";
+import TodoItem from "../components/TodoItem.vue";
 
 export default {
   components: {
@@ -90,13 +82,12 @@ export default {
   },
   data() {
     return {
-      todos: [],
-      filter: "all",
+      todos: []
     };
   },
   computed: {
     filteredTodos() {
-      switch (this.filter) {
+      switch (this.$route.params.id) {
         case "all":
         default:
           return this.todos;
@@ -181,9 +172,6 @@ export default {
       const todosString = JSON.stringify(this.todos);
       localStorage.setItem("todo-app", todosString);
     },
-    changeFilter(filter) {
-      this.filter = filter;
-    },
     completeAll(checked) {
       // done Client
       this.todos.forEach((todo) => {
@@ -236,5 +224,8 @@ export default {
 </script>
 
 <style lang="scss">
-  @import "@/scss/_style.scss";
+  .filters button.selected{
+    background: royalblue;
+    color: white;
+  }
 </style>
